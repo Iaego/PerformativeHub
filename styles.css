@@ -390,11 +390,7 @@
 /* Books page */
 
 #purchase-popup{
-/*  width: 200px;
-  height: 200px;
-  background-color: gray;*/
   position: fixed;
-  /*display: block;*/
   transition: display 0.8s ease-in-out;
   z-index: 5;
 }
