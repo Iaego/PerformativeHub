@@ -427,7 +427,7 @@ footer h1{
 #purchase-popup{
   position: fixed;
   transition: display 0.8s ease-in-out;
-  z-index: 5;
+  z-index: 15;
 }
 
 #purchase-popup.hidden{

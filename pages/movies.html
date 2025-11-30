@@ -29,10 +29,44 @@
     </div>
   </nav>
 
-  <div class="container-fluid m-5" id="main">
-      <p class="fs-2 text-start ms-3 mb-0">Movies</p>
-      <div class="d-flex flex-wrap align-content-start" id="movie-container"></div>
+  <div class="d-flex justify-content-center" id="movie-container">
+    
+    <p class="fs-2 text-start ms-3 mb-0">Movies</p>
+    <div class="d-flex flex-wrap align-content-start" id="main"></div>
+
+    <div class="card hidden" style="max-width: 34rem;" id="purchase-popup">
+      <button type="button" class="btn-close" aria-label="Close" id=button-close-purchase-popup></button>
+      <div class="row g-0">
+        <div class="col-md-4">
+          <div class="container-fluid ml-2 mb-2">
+            <img src="" class="img-fluid rounded" alt="" id="purchase-popup-product-cover">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title mb-0" id="purchase-popup-product-name">Product Name</h4>
+            <p class="card-text mb-0" id="purchase-popup-product-author">By Author</p>
+            <hr class="mt-2 mb-2">
+            <p class="card-text mb-0" id="purchase-popup-product-tag">Tag</p>
+            <hr class="mt-2 mb-2">
+            <div class="d-flex align-items-center justify-content-evenly mb-3" id="purchase-popup-quantity-group">
+              <div class="">Quantity</div>
+              <p class="text-center fs-3 mb-0" id="purchase-quantity">#</p>
+              <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-secondary" type="button" id="decrease-button"> - </button>
+                <button class="btn btn-secondary" type="button" id="increase-button"> + </button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-primary" type="button" id="add-to-cart-btn">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+
   </div>
+
   <footer id="footer">
     <div class="footer-brand">
       <h1>DON'T MISS NEW ITEMS</h1>
@@ -69,42 +103,11 @@
     <svg width="60" height="60">
       <circle cx="30" cy="30" r="20" stroke="black" stroke-width="1" fill="white"></circle>
     </svg>
-  </div>   
-
-    <div class="card hidden" style="max-width: 34rem;" id="purchase-popup">
-      <button type="button" class="btn-close" aria-label="Close" id=button-close-purchase-popup></button>
-      <div class="row g-0">
-        <div class="col-md-4">
-          <div class="container-fluid ml-2 mb-2">
-            <img src="" class="img-fluid rounded" alt="" id="purchase-popup-product-cover">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h4 class="card-title mb-0" id="purchase-popup-product-name">Product Name</h4>
-            <p class="card-text mb-0" id="purchase-popup-product-author">By Author</p>
-            <hr class="mt-2 mb-2">
-            <p class="card-text mb-0" id="purchase-popup-product-tag">Tag</p>
-            <hr class="mt-2 mb-2">
-            <div class="d-flex align-items-center justify-content-evenly mb-3" id="purchase-popup-quantity-group">
-              <div class="">Quantity</div>
-              <p class="text-center fs-3 mb-0" id="purchase-quantity">#</p>
-              <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-secondary" type="button" id="decrease-button"> - </button>
-                <button class="btn btn-secondary" type="button" id="increase-button"> + </button>
-              </div>
-            </div>
-            <div class="d-flex justify-content-center">
-              <button class="btn btn-primary" type="button" id="add-to-cart-btn"> <i class="bi bi-cart"></i>Add To Cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
 
 
   <script>
-  //  Cursor
+   // Cursor
   const cursor = document.getElementById("cursor")
   const footer = document.getElementById("footer")
   footer.addEventListener("mousemove", (e) => {
@@ -198,7 +201,8 @@
   const movieContainer = document.getElementById("movie-container");
   const main = document.getElementById("main");
   const popup = document.getElementById("purchase-popup");
-  // Populate the movies container
+
+  // Populate the main div (movies)
   for (let movie of MOVIES) {
       let container = document.createElement("div");
       container.classList.add("movie-item");
@@ -209,10 +213,10 @@
       poster.alt = "Poster of " + movie.title;
 
       container.appendChild(poster);
-      movieContainer.appendChild(container);
+      main.appendChild(container);
   }
 
-  movieContainer.addEventListener("click", (e) => {
+  main.addEventListener("click", (e) => {
     const clickedMovie = e.target.closest(".movie-item");
     if (!clickedMovie) return;
     main.classList.add("blur");
