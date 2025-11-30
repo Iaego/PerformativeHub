@@ -91,7 +91,9 @@
     cursor.style.display = "block";
     document.body.style.cursor="none";
   });
-
+  footer.addEventListener("mouseleave", (e) => {
+    document.body.style.cursor="default";
+  })
 
 // Scroll-drag infinite carousel vibe coded using ChatGPT <3 hehe
   const slider = document.querySelector('.my-carousel');

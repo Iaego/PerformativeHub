@@ -110,6 +110,11 @@
         cursor.style.display = "block";
         document.body.style.cursor="none";
     });
+    footer.addEventListener("mouseleave", (e) => {
+        document.body.style.cursor="default";
+    })
+
+
     const imgSlider = document.querySelector('.img-slider');
     const nextBtn = document.querySelector('.next-btn');
     const prevBtn = document.querySelector('.prev-btn');

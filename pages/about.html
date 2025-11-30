@@ -97,6 +97,9 @@ Stop pretending you don't care. Start shopping where everyone knows you do.</h2>
     cursor.style.display = "block";
     document.body.style.cursor="none";
   });
+  footer.addEventListener("mouseleave", (e) => {
+    document.body.style.cursor="default";
+  })
 </script>
 </body>
 </html>

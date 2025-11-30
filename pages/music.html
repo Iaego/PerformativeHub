@@ -94,6 +94,11 @@
         cursor.style.display = "block";
         document.body.style.cursor="none";
     });
+    footer.addEventListener("mouseleave", (e) => {
+        document.body.style.cursor="default";
+    })
+
+
         document.addEventListener('DOMContentLoaded', () => {
             const songTableBody = document.getElementById('song-info');
             const vinylContainer = document.getElementById('vinyl-container');
