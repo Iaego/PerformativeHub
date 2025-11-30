@@ -14,7 +14,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="./styles.css">
+
+    <link rel="stylesheet" href="../styles.css">
     
     <title>Performative Website</title>
 </head>
@@ -25,20 +26,32 @@
         <a class="navbar-brand" id="hero-text" href="#">Performative <br> Website</a>
       </div>
       <div class="nav-item" id="nav-item">
-        <a class="justify-content-end fs-5" href="pages/about.html">About, </a>
-        <a class="justify-content-end fs-5" href="pages/contact.html">Contact, </a>
-        <a class="justify-content-end fs-5" href="">Cart</a>
+        <a class="justify-content-end fs-5" href="about.html">About, </a>
+        <a class="justify-content-end fs-5" href="contact.html">Contact, </a>
+        <a class="justify-content-end fs-5" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</a>
       </div>
     </div>
   </nav>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" id="cart-items">
+
+    </div>
+  </div>
+
+
+
 
   <div id="main-content">
     <div class="my-carousel" id="my-carousel">
-      <div class="item"><a href="pages/labubu.html"> <img src="media/labubu-1.png" alt="Labubu" class="my-image"></a></div>
-      <div class="item"><a href="pages/drinks.html"> <img src="media/matcha-1.png" alt="Matcha" class="my-image"></a></div>
-      <div class="item"><a href="pages/music.html">  <img src="media/walkman-1.png" alt="Walkman" class="my-image"></a></div>
-      <div class="item"><a href="pages/movies.html"> <img src="media/poster-1.png" alt="Movie Poster" class="my-image"></a></div>
-      <div class="item"><a href="pages/books.html">  <img src="media/books/the-48-laws-of-power.png" alt="48 Laws of Power" class="my-image"></a></div>
+      <div class="item"><a href="labubu.html"> <img src="../media/labubu-1.png" alt="Labubu" class="my-image"></a></div>
+      <div class="item"><a href="drinks.html"> <img src="../media/matcha-1.png" alt="Matcha" class="my-image"></a></div>
+      <div class="item"><a href="music.html">  <img src="../media/walkman-1.png" alt="Walkman" class="my-image"></a></div>
+      <div class="item"><a href="movies.html"> <img src="../media/poster-1.png" alt="Movie Poster" class="my-image"></a></div>
+      <div class="item"><a href="books.html">  <img src="../media/books/the-48-laws-of-power.png" alt="48 Laws of Power" class="my-image"></a></div>
     </div>
   </div>
 
@@ -82,6 +95,7 @@
     </svg>
   </div>   
 <script>
+
 //  Cursor
   const cursor = document.getElementById("cursor")
   const footer = document.getElementById("footer")
@@ -246,6 +260,52 @@
 
   draw();
 
+  // PROGRAM TO POPULATE CART
+  function populateCart() {
+  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+  const cartContainer = document.getElementById("cart-items");
+  
+  // Clear current content
+  cartContainer.innerHTML = '';
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = '<p>Your cart is empty</p>';
+    return;
+  }
+
+  cart.forEach(item => {
+    const div = document.createElement("div");
+    div.classList.add("cart-item", "d-flex", "mb-3", "align-items-center");
+
+    div.innerHTML = `
+      <div class="product-img me-3">
+        <img src="${item.image}" alt="${item.title}" style="width:60px; height:auto; object-fit:cover;">
+      </div>
+      <div class="product-desc flex-grow-1">
+        <strong>${item.title}</strong><br>
+        <small>${item.author}</small><br>
+        <span>Quantity: ${item.quantity}</span>
+      </div>
+      <button class="btn btn-sm btn-danger remove-item">×</button>
+    `;
+
+    // Remove item button
+    div.querySelector(".remove-item").addEventListener("click", () => {
+      const index = cart.findIndex(ci => ci.title === item.title);
+      if (index >= 0) cart.splice(index, 1);
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+      populateCart(); // Refresh the offcanvas
+    });
+
+    cartContainer.appendChild(div);
+  });
+}
+
+// Call this whenever the cart offcanvas is shown
+const offcanvasEl = document.getElementById('offcanvasRight');
+offcanvasEl.addEventListener('show.bs.offcanvas', populateCart);
 </script>
+<!-- Global JS -->
+<script src="script/main.js"></script>
 </body>
 </html>

@@ -49,6 +49,20 @@
   color: black;
 }
 
+.cart-item{
+  display:flex;
+  flex-direction: row;
+}
+
+.product-img{
+  background-color:gray;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+
 .brand-wrapper {
   position: relative;       /* keeps navbar height intact */
   height: 2.5rem;           /* same as navbar height */
