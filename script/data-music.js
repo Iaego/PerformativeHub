@@ -30,8 +30,8 @@ const SONGS = [
     "audioFilename": "phoebe-bridgers-waiting-room.mp3"
   },
   {
-    "title": "Olivia Dean",
-    "artist": "Dive",
+    "title": "Dive",
+    "artist": "Olivia Dean",
     "coverFilename": "olivia-dean.jpg",
     "audioFilename": "olivia-dean-dive.mp3"
   },
