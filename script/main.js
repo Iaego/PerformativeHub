@@ -53,3 +53,59 @@
 // Call this whenever the cart offcanvas is shown
 const offcanvasEl = document.getElementById('offcanvasRight');
 offcanvasEl.addEventListener('show.bs.offcanvas', populateCart);
+
+
+// ========== Purchase Popup ========== //
+var purchaseAmount = 1;
+const MIN_PURCHASE_QUANTITY = 1;
+const MAX_PURCHASE_QUANTITY = 10;
+const PURCHASE_QUANTITY_ID = "purchase-quantity";
+const DECREASE_BUTTON_ID = "decrease-button";
+const INCREASE_BUTTON_ID = "increase-button";
+
+function getPurchaseAmount() {
+    return document.getElementById(PURCHASE_QUANTITY_ID).innerHTML;
+}
+
+function setPurchaseAmount(value) {
+    document.getElementById(PURCHASE_QUANTITY_ID).innerHTML = value;
+}
+
+function updatePurchaseAmountBy(value) {
+    let purchaseAmount = parseInt(getPurchaseAmount());
+    purchaseAmount += value;
+    // Clamp the purchase amount
+    purchaseAmount = Math.min(Math.max(purchaseAmount, MIN_PURCHASE_QUANTITY), MAX_PURCHASE_QUANTITY);
+    setPurchaseAmount(purchaseAmount);
+}
+
+function resetPurchaseAmount() {
+  setPurchaseAmount(MIN_PURCHASE_QUANTITY);
+}
+
+function onClickHandler(value) {
+    updatePurchaseAmountBy(value);
+}
+
+document.getElementById(DECREASE_BUTTON_ID).addEventListener("click", (e) => {onClickHandler(-1)});
+document.getElementById(INCREASE_BUTTON_ID).addEventListener("click", (e) => {onClickHandler(1)});
+
+
+// ========== ADD TO CART ========== //
+const ADD_TO_CART_BUTTON = "add-to-cart-btn";
+
+function addToCart(product) {
+  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+  // Check if already in cart by title (or id)
+  const existingIndex = cart.findIndex(item => item.title === product.title);
+  if (existingIndex >= 0) {
+    cart[existingIndex].quantity += product.quantity;
+  } else {
+    cart.push(product);
+  }
+
+  // Save back to sessionStorage
+  sessionStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${product.title} added to cart!`);
+}

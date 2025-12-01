@@ -158,64 +158,23 @@
       productCover.alt = clickedMovie.dataset.alt;
 
       document.getElementById("purchase-popup-product-name").innerHTML = clickedMovie.dataset.title;
+      resetPurchaseAmount();
 
       // Show the modal popup
       const popup = new bootstrap.Modal("#purchase-popup");
       popup.toggle();
     });
 
-      // ========== Purchase Popup ========== //
-      var purchaseAmount = 1;
-      const MIN_PURCHASE_AMOUNT = 1;
-      const MAX_PURCHASE_AMOUNT = 10;
-
-
-      function updatePurchaseAmount(id) {
-          document.getElementById(id).innerHTML = purchaseAmount;
+    document.getElementById(ADD_TO_CART_BUTTON).addEventListener("click", () => {
+      // Get current product info from popup and add to cart
+      const product = {
+        title: document.getElementById("purchase-popup-product-name").textContent,
+        image: document.getElementById("purchase-popup-product-cover").src,
+        quantity: parseInt(getPurchaseAmount())
       }
+      addToCart(product);
+    });
 
-      function increasePurchaseAmountBy(value) {
-          purchaseAmount += value;
-          // Clamp the purchase amount
-          purchaseAmount = Math.min(Math.max(purchaseAmount, MIN_PURCHASE_AMOUNT), MAX_PURCHASE_AMOUNT);
-      }
-
-      function onClickHandler(value) {
-        // Apply increase or decrease
-        increasePurchaseAmountBy(value);
-
-        // Update the purchase amount on the site
-        updatePurchaseAmount("purchase-quantity");
-      }
-
-      // Set the initial purchase quantity
-      updatePurchaseAmount("purchase-quantity");
-
-      document.getElementById("decrease-button").addEventListener("click", (e) => {onClickHandler(-1)});
-      document.getElementById("increase-button").addEventListener("click", (e) => {onClickHandler(1)});
-      
-      // Add to cart functionality
-      const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-      document.getElementById("add-to-cart-btn").addEventListener("click", () => {
-        // Get current product info from popup
-        const product = {
-          title: document.getElementById("purchase-popup-product-name").textContent,
-          image: document.getElementById("purchase-popup-product-cover").src,
-          quantity: purchaseAmount
-        };
-
-        // Check if already in cart by title (or id)
-        const existingIndex = cart.findIndex(item => item.title === product.title);
-        if (existingIndex >= 0) {
-          cart[existingIndex].quantity += product.quantity;
-        } else {
-          cart.push(product);
-        }
-
-        // Save back to sessionStorage
-        sessionStorage.setItem("cart", JSON.stringify(cart));
-        alert(`${product.title} added to cart!`);
-      });
   </script>
 </body>
 </html>
