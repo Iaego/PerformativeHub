@@ -56,35 +56,35 @@ offcanvasEl.addEventListener('show.bs.offcanvas', populateCart);
 
 
 // ========== Purchase Popup ========== //
-var purchaseAmount = 1;
+var purchaseQuantity = 1;
 const MIN_PURCHASE_QUANTITY = 1;
 const MAX_PURCHASE_QUANTITY = 10;
 const PURCHASE_QUANTITY_ID = "purchase-quantity";
 const DECREASE_BUTTON_ID = "decrease-button";
 const INCREASE_BUTTON_ID = "increase-button";
 
-function getPurchaseAmount() {
+function getPurchaseQuantity() {
     return document.getElementById(PURCHASE_QUANTITY_ID).innerHTML;
 }
 
-function setPurchaseAmount(value) {
+function setPurchaseQuantity(value) {
     document.getElementById(PURCHASE_QUANTITY_ID).innerHTML = value;
 }
 
-function updatePurchaseAmountBy(value) {
-    let purchaseAmount = parseInt(getPurchaseAmount());
-    purchaseAmount += value;
+function updatePurchaseQuantityBy(value) {
+    let purchaseQuantity = parseInt(getPurchaseQuantity());
+    purchaseQuantity += value;
     // Clamp the purchase amount
-    purchaseAmount = Math.min(Math.max(purchaseAmount, MIN_PURCHASE_QUANTITY), MAX_PURCHASE_QUANTITY);
-    setPurchaseAmount(purchaseAmount);
+    purchaseQuantity = Math.min(Math.max(purchaseQuantity, MIN_PURCHASE_QUANTITY), MAX_PURCHASE_QUANTITY);
+    setPurchaseQuantity(purchaseQuantity);
 }
 
-function resetPurchaseAmount() {
-  setPurchaseAmount(MIN_PURCHASE_QUANTITY);
+function resetPurchaseQuantity() {
+  setPurchaseQuantity(MIN_PURCHASE_QUANTITY);
 }
 
 function onClickHandler(value) {
-    updatePurchaseAmountBy(value);
+    updatePurchaseQuantityBy(value);
 }
 
 document.getElementById(DECREASE_BUTTON_ID).addEventListener("click", (e) => {onClickHandler(-1)});

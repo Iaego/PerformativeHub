@@ -57,7 +57,7 @@
           <div class="col-md-8 d-flex flex-column justify-content-center text-center">
             <h4 id="purchase-popup-product-name">Product Name</h4>
             <hr>
-            <div class="d-flex align-items-center justify-content-evenly mb-3" id="purchase-popup-control">
+            <div class="d-flex align-items-center justify-content-evenly mb-3">
               <p class="fs-6 mb-0">Quantity</p>
               <p class="text-center fs-3 mb-0" id="purchase-quantity">1</p>
               <div class="d-grid gap-2 d-md-block">
@@ -158,7 +158,7 @@
       productCover.alt = clickedMovie.dataset.alt;
 
       document.getElementById("purchase-popup-product-name").innerHTML = clickedMovie.dataset.title;
-      resetPurchaseAmount();
+      resetPurchaseQuantity();
 
       // Show the modal popup
       const popup = new bootstrap.Modal("#purchase-popup");
@@ -170,7 +170,7 @@
       const product = {
         title: document.getElementById("purchase-popup-product-name").textContent,
         image: document.getElementById("purchase-popup-product-cover").src,
-        quantity: parseInt(getPurchaseAmount())
+        quantity: parseInt(getPurchaseQuantity())
       }
       addToCart(product);
     });
