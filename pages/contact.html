@@ -1,8 +1,11 @@
+<!-- HEADER BOILERPLATE -->
+<!-- Change page title -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -10,113 +13,111 @@
     <!-- Bootstrap JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
+    <!-- Bootstrap ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="../styles.css">
-    
-    <title>Performative Website</title>
 </head>
+<!-- END OF HEADER BOILERPLATE -->
+
+<!-- BODY BOILERPLATE -->
 <body>
-    <nav class="navbar navbar-expand-lg bg-body" id="my-nav">
-        <div class="container-fluid">
-            <div class="brand-wrapper">
-            <a class="navbar-brand" id="hero-text.shrink" href="index.html">Performative <br> Website</a>
-            </div>
-            <div class="nav-item" id="nav-item">
-                <a class="justify-content-end fs-5" href="about.html">About, </a>
-                <a class="justify-content-end fs-5" href="contact.html">Contact, </a>
-                <a class="justify-content-end fs-5" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</a>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg bg-body" id="my-nav">
+    <div class="container-fluid">
+      <div class="brand-wrapper">
+      <a class="navbar-brand" id="hero-text.shrink" href="index.html">Performative <br> Website</a>
+      </div>
+      <div class="nav-item" id="nav-item">
+        <a class="justify-content-end fs-5" href="about.html">About | </a>
+        <a class="justify-content-end fs-5" href="contact.html">Contact | </a>
+        <a class="justify-content-end fs-5" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</a>
+      </div>
+    </div>
+  </nav>
+  <!-- CART -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasRightLabel">Cart</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body" id="cart-items">
+    <div class="offcanvas-body" id="cart-items"></div>
+  </div>
+<!-- END OF BODY BOILERPLATE -->
 
+<!-- PAGE CONTENTS -->
+  <div class="contact-content">
+    <div class="contact-header">
+      <h1 class="my-5">Get in touch</h1>  
+        <p class="mt-3">You've made it to the contact page—a truly vulnerable and committed step. Please choose the channel that best suits the perceived effort you wish to communicate. We know that true connoisseurs avoid simplistic forms. Therefore, we offer tiered communication methods based on your commitment level to the methodology of Performativism.</p>
+    </div>
+
+    <div class="divider"></div>  <!--Vertical line dividing form and header-->
+
+    <div class="contact-forms">
+
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <p>We know you're already performing an intricate digital self, so why not add one more highly-curated data stream? We’d love to perpetually flood your inbox with critical data points that will inform your next persona pivot—specifically, the latest funding opportunities, crucial networking updates, and highly granular market insights that you can casually reference at your next strategic outdoor coffee ritual. If you're truly committed to maximizing your perceived competence, please tick the box below.</p>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="checkDefault">
+        <label class="form-check-label" for="checkDefault">
+          Yes, I'd like to receive updates, offers, and insights
+        </label>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </div>
+<!-- END OF PAGE CONTENTS -->
 
-    <div class="contact-content">
-        <div class="contact-header">
-            <h1>Get in touch</h1>  
-            <p>
-                You've made it to the contact page—a truly vulnerable and committed step. Please choose the channel that best suits the perceived effort you wish to communicate.
-
-We know that true connoisseurs avoid simplistic forms. Therefore, we offer tiered communication methods based on your commitment level to the methodology of
-            </p>
-        </div>
-
-        <div class="divider"></div>  <!--Vertical line dividing form and header-->
-
-        <div class="contact-forms">
-
-
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <p>
-                We know you're already performing an intricate digital self, so why not add one more highly-curated data stream? We’d love to perpetually flood your inbox with critical data points that will inform your next persona pivot—specifically, the latest funding opportunities, crucial networking updates, and highly granular market insights that you can casually reference at your next strategic outdoor coffee ritual.
-
-If you're truly committed to maximizing your perceived competence, please tick the box below.
-            </p>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault">
-                <label class="form-check-label" for="checkDefault">
-                    Yes, I'd like to receive updates, offers, and insights
-                </label>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </div>
-    <footer id="footer">
+<!-- FOOTER BOILERPLATE -->
+  <footer id="footer">
     <div class="footer-brand">
-        <h1>DON'T MISS NEW ITEMS</h1>
+      <h1>DON'T MISS NEW ITEMS</h1>
 
-        <form class="w-100 m-0">
+      <form class="w-100 m-0">
         <div class="row g-3">
-            <div class="col-md-10">
+          <div class="col-md-10">
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
-            </div>
-            <div class="col-md-2">
+          </div>
+          <div class="col-md-2">
             <button type="submit" class="btn btn-primary">Go</button>
-            </div>
+          </div>
         </div>
-        </form>
+      </form>
     </div>
     <div class="footer-nav">
-        <div class="footer-info">
+      <div class="footer-info">
         <h4>You Can Find Us</h4>
         <p>performative@gmail.com</p>
         <p>+12 345 6789</p>
-        <p>Governor Pack Road, Baguio City, 2600, Benguet, Philippines</p>
-        </div>
-        <div class="footer-faq">
+        <p>Governor Pack Road, Baguio City, 2600, <br>Benguet, Philippines</p>
+      </div>
+      <div class="footer-faq">
         <h4>We Will Always Help</h4>
         <p>Terms and Conditions</p>
         <p>Privacy Policy</p>
         <p>Cookies</p>
         <p>Shipping & Returns</p>
-        </div>
+      </div>
     </div>
-    </footer>
+  </footer>
+  
   <div class="cursor" id="cursor">
     <svg width="60" height="60">
       <circle cx="30" cy="30" r="20" stroke="black" stroke-width="1" fill="white"></circle>
     </svg>
-  </div>   
+  </div>
 
-<!-- Global JS -->
-<script defer src="../script/main.js"></script>
+  <!-- Global JS -->
+  <script src="../script/main.js"></script>
+<!-- END OF FOOTER BOILERPLATE -->
+
 </body>
 </html>
