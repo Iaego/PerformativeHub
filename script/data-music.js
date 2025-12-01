@@ -30,8 +30,8 @@ const SONGS = [
     "audioFilename": "phoebe-bridgers-waiting-room.mp3"
   },
   {
-    "title": "Olivia Dean",
-    "artist": "Dive",
+    "title": "Dive",
+    "artist": "Olivia Dean",
     "coverFilename": "olivia-dean.jpg",
     "audioFilename": "olivia-dean-dive.mp3"
   },
@@ -65,12 +65,7 @@ const SONGS = [
     "coverFilename": "olivia-dean-1.jpg",
     "audioFilename": "olivia-dean-dive.mp3"
   },
-  {
-    "title": "Dive",
-    "artist": "Olivia Dean",
-    "coverFilename": "olivia-dean.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
-  },
+ 
   {
     "title": "Kingston",
     "artist": "Faye Webster",
@@ -84,9 +79,9 @@ const SONGS = [
     "audioFilename": "olivia-dean-dive.mp3"
   },
   {
-    "title": "Waiting Room",
-    "artist": "Phoebe Bridgers",
-    "coverFilename": "phoebe-bridgers-1.jpg",
+    "title": "Juna",
+    "artist": "Clairo",
+    "coverFilename": "clairo.png",
     "audioFilename": "olivia-dean-dive.mp3"
   },
   {
