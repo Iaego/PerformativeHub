@@ -414,16 +414,8 @@ footer h1{
 }
 
 /* About Page */
-.about-content{
-  margin-top: 2%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.about-content img{
-  width: 90vw;
-  height: auto;
+.about-img{
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .about-title{
@@ -433,11 +425,6 @@ footer h1{
 .about-title h1{
   font-size: 4em;
   font-family: 'OpenSauceBold';
-}
-
-.about-desc{
-  width: 40%;
-  text-align: center;
 }
 
 .about-desc h2{
