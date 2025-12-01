@@ -39,84 +39,78 @@ const SONGS = [
     "title": "The Perfect Pair",
     "artist": "beabadoobee",
     "coverFilename": "beabadoobee.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "beabadoobee-the-perfect-pair.mp3"
   },
   {
     "title": "Beaches",
     "artist": "beabadoobee",
     "coverFilename": "beabadoobee-1.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "beabadoobee-beaches.mp3"
   },
   {
     "title": "From the start",
     "artist": "Laufey",
     "coverFilename": "laufey.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "laufey-from-the-start.mp3"
   },
   {
     "title": "Difficult",
     "artist": "Gracie Abrams",
     "coverFilename": "gracie-abrams.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "gracie-abrams-difficult.mp3"
   },
   {
     "title": "Man I Need",
     "artist": "Olivia Dean",
     "coverFilename": "olivia-dean-1.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
-  },
-  {
-    "title": "Dive",
-    "artist": "Olivia Dean",
-    "coverFilename": "olivia-dean.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "olivia-dean-man-i-need.mp3"
   },
   {
     "title": "Kingston",
     "artist": "Faye Webster",
     "coverFilename": "faye-webster.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "faye-webster-kingston.mp3"
   },
   {
     "title": "My Love Mine All Mine",
     "artist": "Mitski",
     "coverFilename": "mitski-1.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "mitski-my-love-mine-all-mine.mp3"
   },
   {
     "title": "Waiting Room",
     "artist": "Phoebe Bridgers",
     "coverFilename": "phoebe-bridgers-1.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "phoebe-bridgers-waiting-room.mp3"
   },
   {
     "title": "ceilings",
     "artist": "Lizzy McAlpine",
     "coverFilename": "lizzy-mcalpine.png",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "lizzy-mcalpine-ceilings.mp3"
   },
   {
     "title": "what a shame",
     "artist": "Lizzy McAlpine",
     "coverFilename": "lizzy-mcalpine-1.jpeg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "lizzy-mcalpine-what-a-shame.mp3"
   },
   {
     "title": "Valentine",
     "artist": "Laufey",
     "coverFilename": "laufey-1.jpeg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "laufey-valentine.mp3"
   },
   {
     "title": "Let You Break My Heart Again",
-    "artist": "Philharmonia Orchestra",
+    "artist": "Laufey & Philharmonia Orchestra ",
     "coverFilename": "philharmonia.webp",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "laufey-philharmonia-orchestra-let-you-break-my-heart-again.mp3"
   },
   {
     "title": "Take A Chance With Me",
     "artist": "Niki",
     "coverFilename": "niki-1.jpg",
-    "audioFilename": "olivia-dean-dive.mp3"
+    "audioFilename": "niki-take-a-chance-with-me.mp3"
   },
 ];
