@@ -52,7 +52,7 @@
         </div>
         <div class="modal-body row">
           <div class="col-md-4">
-            <img class="img-fluid rounded add-box-shadow" id="purchase-popup-product-cover">
+            <img class="img-fluid rounded shadow" id="purchase-popup-product-cover">
           </div>
           <div class="col-md-8 d-flex flex-column justify-content-center text-center">
             <h4 id="purchase-popup-product-name">Product Name</h4>
@@ -77,8 +77,8 @@
 <!-- END OF BODY BOILERPLATE -->
 
 <!-- PAGE CONTENTS -->
-  <div id="movie-container">  
-    <p class="fs-2 text-start ms-3 mb-0">Movies</p>
+  <div class="min-vh-100 my-5" id="movie-container">  
+    <h2>Movies</h2>
     <div class="d-flex flex-wrap align-content-start justify-content-center" id="main"></div>
   </div>
 <!-- END OF PAGE CONTENTS -->
@@ -135,7 +135,7 @@
     // Populate the main div (movies)
     for (let movie of MOVIES) {
       let container = document.createElement("div");
-      container.classList.add("movie-item", "add-box-shadow");
+      container.classList.add("movie-item", "shadow");
       container.dataset.title = movie.title;
       container.dataset.src = "../media/movies/" + movie.posterFilename;
       container.dataset.alt = "Poster of " + movie.title;

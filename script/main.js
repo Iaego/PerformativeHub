@@ -9,6 +9,7 @@
   });
   footer.addEventListener("mouseleave", (e) => {
     document.body.style.cursor="default";
+    cursor.style.display = "none";
   })
     // PROGRAM TO POPULATE CART
   function populateCart() {
