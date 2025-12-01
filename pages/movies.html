@@ -110,93 +110,18 @@
     </svg>
   </div>
 
+  <!-- Global JS -->
+  <script src="../script/main.js"></script>
+  <!-- MOVIES -->
+  <script src="../script/data-movies.js"></script>
 
   <script>
+    const movieContainer = document.getElementById("movie-container");
+    const main = document.getElementById("main");
+    const popup = document.getElementById("purchase-popup");
 
-
-
-      const MOVIES = [
-          {
-              "title": "Good Will Hunting",
-              "posterFilename": "good-will-hunting.jpg"
-          },
-          {
-              "title": "Aftersun",
-              "posterFilename": "aftersun.jpg"
-          },
-          {
-              "title": "Dead Poet's Society",
-              "posterFilename": "dead-poets-society.jpg"
-          },
-          {
-              "title": "Moonlight",
-              "posterFilename": "moonlight.jpg"
-          },
-          {
-              "title": "Perks of Being a Wallflower",
-              "posterFilename": "perks-of-being-a-wallflower.jpg"
-          },
-          {
-              "title": "12 Angry Men",
-              "posterFilename": "12-angry-men.jpg"
-          },
-          {
-              "title": "Memories of Murder",
-              "posterFilename": "memories-of-murder.jpg"
-          },
-          {
-              "title": "Harakiri",
-              "posterFilename": "harakiri.jpg"
-          },
-          {
-              "title": "Come and See",
-              "posterFilename": "come-and-see.jpg"
-          },
-          {
-              "title": "City of God",
-              "posterFilename": "city-of-god.jpg"
-          },
-          {
-              "title": "Oldboy",
-              "posterFilename": "oldboy.jpg"
-          },
-          {
-              "title": "Gitling",
-              "posterFilename": "gitling.jpg"
-          },
-          {
-              "title": "I'm Drunk I Love You",
-              "posterFilename": "im-drunk-i-love-you.jpg"
-          },
-          {
-              "title": "Anatomy Of A Fall",
-              "posterFilename": "anatomy-of-a-fall.jpg"
-          },
-          {
-              "title": "Tanabata's Wife",
-              "posterFilename": "tanabatas-wife.jpg"
-          },
-          {
-              "title": "Drive My Car",
-              "posterFilename": "drive-my-car.jpg"
-          },
-          {
-              "title": "Decision To Leave",
-              "posterFilename": "decision-to-leave.jpg"
-          },
-          {
-              "title": "Fallen Angels",
-              "posterFilename": "fallen-angels.jpg"
-          },
-      ];
-
-
-  const movieContainer = document.getElementById("movie-container");
-  const main = document.getElementById("main");
-  const popup = document.getElementById("purchase-popup");
-
-  // Populate the main div (movies)
-  for (let movie of MOVIES) {
+    // Populate the main div (movies)
+    for (let movie of MOVIES) {
       let container = document.createElement("div");
       container.classList.add("movie-item");
       container.dataset.title = movie.title;
@@ -209,92 +134,90 @@
 
       container.appendChild(poster);
       main.appendChild(container);
-  }
-
-  main.addEventListener("click", (e) => {
-    const clickedMovie = e.target.closest(".movie-item");
-    if (!clickedMovie) return;
-    main.classList.add("blur");
-    popup.classList.remove("hidden");
-    isPurchasePopupVisible = true;
-    console.log(clickedMovie.dataset.title); // Checker
-      // Update the popup with the clicked product details
-      const productCover = document.getElementById("purchase-popup-product-cover");
-      productCover.src = clickedMovie.dataset.src;
-      productCover.alt = clickedMovie.dataset.alt;
-
-      document.getElementById("purchase-popup-product-name").innerHTML = clickedMovie.dataset.title;
-
-    });
-    // Attach functionality to the close button
-    document.getElementById("button-close-purchase-popup").addEventListener("click", (e) => {
-      main.classList.remove("blur");
-      popup.classList.add("hidden");
-      isPurchasePopupVisible = false;
-    });
-
-    // ========== Purchase Popup ========== //
-    var purchaseAmount = 1;
-    const MIN_PURCHASE_AMOUNT = 1;
-    const MAX_PURCHASE_AMOUNT = 10;
-
-
-    function updatePurchaseAmount(id) {
-        document.getElementById(id).innerHTML = purchaseAmount;
     }
 
-    function increasePurchaseAmountBy(value) {
-        purchaseAmount += value;
-        // Clamp the purchase amount
-        purchaseAmount = Math.min(Math.max(purchaseAmount, MIN_PURCHASE_AMOUNT), MAX_PURCHASE_AMOUNT);
-    }
+    main.addEventListener("click", (e) => {
+      const clickedMovie = e.target.closest(".movie-item");
+      if (!clickedMovie) return;
+      main.classList.add("blur");
+      popup.classList.remove("hidden");
+      isPurchasePopupVisible = true;
+      console.log(clickedMovie.dataset.title); // Checker
+        // Update the popup with the clicked product details
+        const productCover = document.getElementById("purchase-popup-product-cover");
+        productCover.src = clickedMovie.dataset.src;
+        productCover.alt = clickedMovie.dataset.alt;
 
-    function onClickHandler(value) {
+        document.getElementById("purchase-popup-product-name").innerHTML = clickedMovie.dataset.title;
+
+      });
+
+      // Attach functionality to the close button
+      document.getElementById("button-close-purchase-popup").addEventListener("click", (e) => {
+        main.classList.remove("blur");
+        popup.classList.add("hidden");
+        isPurchasePopupVisible = false;
+      });
+
+      // ========== Purchase Popup ========== //
+      var purchaseAmount = 1;
+      const MIN_PURCHASE_AMOUNT = 1;
+      const MAX_PURCHASE_AMOUNT = 10;
+
+
+      function updatePurchaseAmount(id) {
+          document.getElementById(id).innerHTML = purchaseAmount;
+      }
+
+      function increasePurchaseAmountBy(value) {
+          purchaseAmount += value;
+          // Clamp the purchase amount
+          purchaseAmount = Math.min(Math.max(purchaseAmount, MIN_PURCHASE_AMOUNT), MAX_PURCHASE_AMOUNT);
+      }
+
+      function onClickHandler(value) {
         // Apply increase or decrease
         increasePurchaseAmountBy(value);
 
         // Update the purchase amount on the site
         updatePurchaseAmount("purchase-quantity");
-    }
+      }
 
-    // Set the initial purchase quantity
-    updatePurchaseAmount("purchase-quantity");
+      // Set the initial purchase quantity
+      updatePurchaseAmount("purchase-quantity");
 
-    document.getElementById("decrease-button").addEventListener("click", (e) => {onClickHandler(-1)});
-    document.getElementById("increase-button").addEventListener("click", (e) => {onClickHandler(1)});
-    
-    // Add to cart functionality
-    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-    document.getElementById("add-to-cart-btn").addEventListener("click", () => {
-    // Get current product info from popup
-    const product = {
-      title: document.getElementById("purchase-popup-product-name").textContent,
-      image: document.getElementById("purchase-popup-product-cover").src,
-      quantity: purchaseAmount
-    };
+      document.getElementById("decrease-button").addEventListener("click", (e) => {onClickHandler(-1)});
+      document.getElementById("increase-button").addEventListener("click", (e) => {onClickHandler(1)});
+      
+      // Add to cart functionality
+      const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      document.getElementById("add-to-cart-btn").addEventListener("click", () => {
+        // Get current product info from popup
+        const product = {
+          title: document.getElementById("purchase-popup-product-name").textContent,
+          image: document.getElementById("purchase-popup-product-cover").src,
+          quantity: purchaseAmount
+        };
 
-    // Check if already in cart by title (or id)
-    const existingIndex = cart.findIndex(item => item.title === product.title);
-    if (existingIndex >= 0) {
-      cart[existingIndex].quantity += product.quantity;
-    } else {
-      cart.push(product);
-    }
+        // Check if already in cart by title (or id)
+        const existingIndex = cart.findIndex(item => item.title === product.title);
+        if (existingIndex >= 0) {
+          cart[existingIndex].quantity += product.quantity;
+        } else {
+          cart.push(product);
+        }
 
-    // Save back to sessionStorage
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${product.title} added to cart!`);
+        // Save back to sessionStorage
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${product.title} added to cart!`);
 
-    // Optionally close popup
-    main.classList.remove("blur");
-    popup.classList.add("hidden");
-    isPurchasePopupVisible = false;
-    });
-
-  
-   
-
+        // Optionally close popup
+        main.classList.remove("blur");
+        popup.classList.add("hidden");
+        isPurchasePopupVisible = false;
+      });
   </script>
+
 <!-- Global JS -->
 <script defer src="../script/main.js"></script>
 </body>
